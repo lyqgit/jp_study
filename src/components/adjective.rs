@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 #[component]
-fn adjective_one_type() -> Element {
+pub fn adjective_one_type() -> Element {
   rsx! {
     div { 
       h1 { "一类形容词"}
@@ -11,22 +11,34 @@ fn adjective_one_type() -> Element {
       thead {
         tr {
           th { "形容词" }
-          th { "体" }
-          th { "现在/将来" }
-          th { "现在/将来（否定）" }
-          th { "过去" }
-          th { "过去（否定）" }
+          th { "时态" }
+          th { "肯定" }
+          th { "否定" }
         }
       }
       tbody {  
         tr {
+          td { rowspan:2,"辛い" }
+          td { "现在/将来" }
           td { "辛い" }
-          td { rowspan:2, "敬体" }
-          td { "简体" }
-          td { "辛い" }
-          td { "辛かった" }
           td { "辛くない" }
-          td { "辛く買ったない" }
+        }
+        tr {
+          td { "过去" }
+          td { "辛かった" }
+          td { "辛くなかった" }
+        }
+
+        tr {
+          td { rowspan:2,"広い" }
+          td { "现在/将来" }
+          td { "広い" }
+          td { "広くない" }
+        }
+        tr {
+          td { "过去" }
+          td { "広かった" }
+          td { "広くなかった" }
         }
       }
     }
